@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sticky Notes</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<button id="addNoteBtn">+ Add Note</button>
+<div id="board"></div>
+<div id="editorModal">
+  <div id="editorContent">
+    <h2 id="modalTitle">New Note</h2>
+
+    <label>Title</label>
+    <input type="text" id="noteTitle" placeholder="Note title" />
+
+    <label>Body</label>
+    <textarea id="noteBody" placeholder="Write your note here..."></textarea>
+
+    <label>Color</label>
+    <input type="color" id="noteColor" value="#fff3b0" />
+
+    <label>
+      <input type="checkbox" id="pinChk" /> Pin this note
+    </label>
+
+    <div id="editorActions">
+      <button id="saveNoteBtn">Save</button>
+      <button class="cancelBtn" id="cancelNoteBtn">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+<!-- About this web page (Ek web app jisme tum notes likh, edit, pin aur delete kar sakte ho, notes color choose karke local storage me save hote hain.) -->
