@@ -1,0 +1,165 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  margin: 0; 
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#board {
+  position: relative;
+  width: 90vw;
+  min-height: 80vh;
+  background: #fff;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 0.1);
+  border-radius: 8px;
+  padding: 15px;
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 15px;
+  overflow-y: auto;
+  align-items: flex-start;
+}
+
+.sticky {
+  background: #fff3b0;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px rgb(0 0 0 / 0.1);
+  padding: 12px 16px;
+  height: auto;             
+  min-width: 180px; 
+  max-width: 220px;
+  cursor: grab;
+  user-select: none;
+  position: relative;
+  display: inline-block;
+  transition: box-shadow 0.2s;
+}
+
+.sticky:hover {
+  box-shadow: 0 10px 18px rgb(0 0 0 / 0.15);
+}
+
+.sticky.pinned {
+  border: 3px solid #f59e0b; 
+}
+
+.note-title {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.note-body {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.note-timestamp {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+button {
+  flex-grow: 1;
+  padding: 6px 8px;
+  font-size: 13px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background: #efefef;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #ddd;
+}
+
+#addNoteBtn {
+  margin-bottom: 15px;
+  padding: 10px 18px;
+  font-size: 16px;
+  background: #10b981; 
+  color: white;
+  border-radius: 8px;
+}
+
+#addNoteBtn:hover {
+  background: #059669;
+}
+
+/* Modal */
+#editorModal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#editorContent {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+#editorContent label {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+#editorContent input[type=text],
+#editorContent textarea,
+#editorContent input[type=color] {
+  margin-top: 4px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  resize: vertical;
+}
+
+#editorContent textarea {
+  min-height: 100px;
+}
+
+#editorActions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+#editorActions button {
+  background: #10b981;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  padding: 8px 14px;
+  font-weight: 600;
+}
+
+#editorActions button.cancelBtn {
+  background: #ef4444; 
+}
+
+#editorActions button:hover {
+  filter: brightness(0.9);
+}
