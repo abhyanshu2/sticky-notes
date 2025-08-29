@@ -1,39 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Sticky Notes</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sticky Notes</title>
+  <meta name="description" content="Sticky Notes app – write, edit, pin, search, drag, resize, set reminders with notifications." />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<button id="addNoteBtn">+ Add Note</button>
-<div id="board"></div>
-<div id="editorModal">
-  <div id="editorContent">
-    <h2 id="modalTitle">New Note</h2>
+  <div id="toolbar">
+    <button id="addNoteBtn" type="button">+ Add Note</button>
+    <input id="searchBar" type="text" placeholder="🔍 Search notes..." aria-label="Search notes" />
+  </div>
+  <div id="board" aria-live="polite"></div>
 
-    <label>Title</label>
-    <input type="text" id="noteTitle" placeholder="Note title" />
+  <div id="editorModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div id="editorContent">
+      <button id="closeModalBtn" class="icon-btn" aria-label="Close">✕</button>
+      <h2 id="modalTitle">New Note</h2>
 
-    <label>Body</label>
-    <textarea id="noteBody" placeholder="Write your note here..."></textarea>
+      <label for="noteTitle">Title</label>
+      <input id="noteTitle" type="text" placeholder="Note title" />
 
-    <label>Color</label>
-    <input type="color" id="noteColor" value="#fff3b0" />
+      <label for="noteBody">Body</label>
+      <textarea id="noteBody" placeholder="Write your note here..."></textarea>
 
-    <label>
-      <input type="checkbox" id="pinChk" /> Pin this note
-    </label>
+      <div class="row">
+        <div class="col">
+          <label for="noteColor">Color</label>
+          <input id="noteColor" type="color" value="#fff3b0" />
+        </div>
+        <div class="col pinbox">
+          <label><input id="pinChk" type="checkbox" /> Pin this note</label>
+        </div>
+      </div>
 
-    <div id="editorActions">
-      <button id="saveNoteBtn">Save</button>
-      <button class="cancelBtn" id="cancelNoteBtn">Cancel</button>
+      <label for="noteReminder">Reminder (optional)</label>
+      <input id="noteReminder" type="datetime-local" />
+
+      <div id="editorActions">
+        <button id="saveNoteBtn" type="button">Save</button>
+        <button class="cancelBtn" id="cancelNoteBtn" type="button">Cancel</button>
+      </div>
+
+      <p class="hint">Shortcuts: <kbd>Ctrl</kbd>+<kbd>Enter</kbd> to Save • <kbd>Esc</kbd> to Close • <kbd>Ctrl</kbd>+<kbd>N</kbd> to New</p>
     </div>
   </div>
-</div>
 
-<script src="script.js"></script>
+  <div id="notification" aria-hidden="true"></div>
+  <audio id="dingAudio" src="ahh sound effect.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
 </body>
 </html>
-<!-- About this web page (Ek web app jisme tum notes likh, edit, pin aur delete kar sakte ho, notes color choose karke local storage me save hote hain.) -->
