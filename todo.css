@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f5f7fa;
+  background:DCDCDC;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -146,3 +146,4 @@ h1 {
     padding: 4px 6px;
   }
 }
+
